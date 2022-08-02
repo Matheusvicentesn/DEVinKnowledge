@@ -1,0 +1,96 @@
+/* FORMULARIO LATERAL */
+
+.divform {
+  height: 100%;
+  width: 300px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgb(34, 178, 207);
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.divform form {
+  text-align: center;
+}
+
+.divform #btn {
+  text-align: center;
+}
+
+.content {
+  margin-left: 400px;
+  height: 100%;
+  width: auto;
+  position: relative;
+  overflow: auto;
+  z-index: 1;
+}
+
+/* BARRA DE STATUS */
+
+.wrapper {
+  /* border: 1px solid blue; */
+  text-align: center;
+  width: 100%;
+}
+#total {
+  display: inline-block;
+  width: 50px;
+  height: 90px;
+  /* border: 1px solid red;   PARA VISUALIZAR */
+  text-align: center;
+}
+#front {
+  display: inline-block;
+  width: 50px;
+  height: 90px;
+  /* border: 1px solid red;   PARA VISUALIZAR */
+  text-align: center;
+}
+#back {
+  display: inline-block;
+  width: 50px;
+  height: 90px;
+  /* border: 1px solid red;   PARA VISUALIZAR */
+  text-align: center;
+}
+#full {
+  display: inline-block;
+  width: 50px;
+  height: 90px;
+  /* border: 1px solid red;   PARA VISUALIZAR */
+  text-align: center;
+}
+#soft {
+  display: inline-block;
+  width: 50px;
+  height: 90px;
+  /* border: 1px solid red;   PARA VISUALIZAR */
+  text-align: center;
+}
+
+#cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  grid-gap: 50px;
+  /* border: 1px solid red; */
+}
+
+#card {
+  display: grid;
+  grid-template-rows: max-content 200px 1fr;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  background-color: #f1f1f1;
+}
+
+
+#card h1{
+    text-align: center;
+}
+
+#card p{
+    font-size: large;
+}

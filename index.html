@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DEVinKnowledge</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <!-- Formulario -->
+      <div class="divform">
+        <form>
+          <p>Titulo:</p>
+          <input type="text" id="titulo" />
+          <!-- minimo 8 max 64 carac obrigatorio -->
+
+          <p>Linguagem ou Skill</p>
+          <input type="text" id="skill" />
+          <!-- minimo 8 max 32 carac obrigatorio -->
+          <p>Categoria</p>
+          <select name="categorias" id="categoria">
+            <!-- obrigatorio -->
+            <option value="default">Selecione uma categoria</option>
+            <option value="FrontEnd">FrontEnd</option>
+            <option value="BackEnd">BackEnd</option>
+            <option value="FullStack">FullStack</option>
+            <option value="Comportamental/Soft">Comportamental/Soft</option>
+          </select>
+          <p>Descrição Completa (dica)</p>
+          <textarea
+            name="descricao"
+            id="descricao"
+            cols="30"
+            rows="10"
+          ></textarea>
+          <!-- obrigatorio min 16 max 1024 -->
+          <p>Vídeo do YouTube</p>
+          <input
+            type="text"
+            id="youtube"
+          /><!-- opcional validar que e uma url -->
+          <br /><br />
+          <button onclick="input()">Enviar</button>
+        </form>
+        <div id="btn">
+          <button onclick="prencher()">Preencher</button>
+        </div>
+      </div>
+      <div class="content">
+        <!-- Barra de status -->
+        <div class="wrapper">
+          <div id="total">
+            <h6>Total</h6>
+            <p>38</p>
+          </div>
+
+          <div id="front">
+            <h6>FrontEnd</h6>
+            <p>12</p>
+          </div>
+
+          <div id="back">
+            <h6>BackEnd</h6>
+            <p>7</p>
+          </div>
+
+          <div id="full">
+            <h6>FullStack</h6>
+            <p>5</p>
+          </div>
+
+          <div id="soft">
+            <h6>SoftSkill</h6>
+            <p>14</p>
+          </div>
+        </div>
+
+        <!-- Modal -->
+        <div id="cards"></div>
+      </div>
+    </main>
+  </body>
+  <script src="script.js"></script>
+</html>
