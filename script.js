@@ -18,18 +18,11 @@ function preenche_form(data) {
 }
 
 function salvar_edicao(id, titulo, skill, categoria, descricao, youtube) {
-  let array_editado = [   id = id, titulo = titulo, skill = skill,categoria= categoria,descricao= descricao,youtube = youtube,];
+  let array_editado = { id, titulo, skill, categoria, descricao, youtube };
   const data_full = JSON.parse(localStorage.getItem("dicas"));
-  console.log(data_full);
   const posicao = data_full.findIndex((item) => item.id == id);
   data_full.splice(posicao, 1, array_editado);
   localStorage.setItem("dicas", JSON.stringify(data_full));
-    
-  // console.log(array_editado);
-
-
-  // console.log(posicao);
-
 
 }
 
@@ -38,7 +31,6 @@ function editar(obj) {
     (item) => item.id == obj.id
   );
   preenche_form(data);
-
 }
 
 function apagar(obj) {
