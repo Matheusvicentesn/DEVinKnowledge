@@ -11,7 +11,7 @@
     <main>
       <!-- Formulario -->
       <div class="divform">
-        <form>
+        <form id="formulario">
           <input type="hidden" id="id" />
           <p>Titulo:</p>
           <input type="text" id="titulo" />
@@ -27,7 +27,7 @@
             <option value="FrontEnd">FrontEnd</option>
             <option value="BackEnd">BackEnd</option>
             <option value="FullStack">FullStack</option>
-            <option value="Comportamental/Soft">Comportamental/Soft</option>
+            <option value="Soft">Comportamental/Soft</option>
           </select>
           <p>Descrição Completa (dica)</p>
           <textarea
@@ -47,34 +47,36 @@
         </form>
         <div id="btn">
           <button onclick="prencher()">Preencher</button>
+          <button onclick="limpar()">Limpar</button>
         </div>
       </div>
       <div class="content">
         <!-- Barra de status -->
         <div class="wrapper">
+          <input type="text" autocomplete="off" id="pesquisa" />
           <div id="total">
             <h6>Total</h6>
-            <p>38</p>
+            <p class="total">38</p>
           </div>
 
           <div id="front">
             <h6>FrontEnd</h6>
-            <p>12</p>
+            <p class="front">12</p>
           </div>
 
           <div id="back">
             <h6>BackEnd</h6>
-            <p>7</p>
+            <p class="back">7</p>
           </div>
 
           <div id="full">
             <h6>FullStack</h6>
-            <p>5</p>
+            <p class="full">5</p>
           </div>
 
           <div id="soft">
             <h6>SoftSkill</h6>
-            <p>14</p>
+            <p class="soft">14</p>
           </div>
         </div>
 
@@ -84,4 +86,7 @@
     </main>
   </body>
   <script src="script.js"></script>
+  <script>
+
+  </script>
 </html>

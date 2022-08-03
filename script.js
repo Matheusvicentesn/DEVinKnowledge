@@ -1,3 +1,46 @@
+function limpar() {
+  document.getElementById("formulario").reset();
+}
+function pesquisar() {
+  var pesquisa = document.getElementById("pesquisa");
+  var titulocard = document.getElementsByClassName("titulocard");
+  pesquisa.onkeyup = function () {
+    var search_value = pesquisa.value.toLowerCase();
+    for (var l = 0; l < titulocard.length; l++) {
+      if (
+        titulocard[l].innerHTML.toLocaleLowerCase().search(search_value) == -1
+      ) {
+        titulocard[l].style.display = "none";
+      } else {
+        titulocard[l].style.display = "block";
+      }
+    }
+  };
+}
+
+function contar() {
+  let FrontEnd = document.querySelectorAll(" .FrontEnd").length;
+  let BackEnd = document.querySelectorAll(" .BackEnd").length;
+  let FullStack = document.querySelectorAll(" .FullStack").length;
+  let Soft = document.querySelectorAll(" .Soft").length;
+
+  let front = document.querySelector(".front");
+  front.innerHTML = FrontEnd;
+
+  let back = document.querySelector(".back");
+  back.innerHTML = BackEnd;
+
+  let full = document.querySelector(".full");
+  full.innerHTML = FullStack;
+
+  let soft = document.querySelector(".soft");
+  soft.innerHTML = Soft;
+
+  let total = FrontEnd + BackEnd + FullStack + Soft;
+  let totalexibir = document.querySelector(".total");
+  totalexibir.innerHTML = total;
+}
+
 function prencher() {
   document.getElementById("titulo").value = "GRID vs Flex-box";
   document.getElementById("skill").value = "CSS";
@@ -23,7 +66,6 @@ function salvar_edicao(id, titulo, skill, categoria, descricao, youtube) {
   const posicao = data_full.findIndex((item) => item.id == id);
   data_full.splice(posicao, 1, array_editado);
   localStorage.setItem("dicas", JSON.stringify(data_full));
-
 }
 
 function editar(obj) {
@@ -51,7 +93,7 @@ function criar_cards() {
     conteudo.setAttribute("value", categoria);
 
     document.getElementById("cards").appendChild(conteudo);
-    conteudo.innerHTML = `<div id="card" class="${dica.id}"> <h1>${dica.titulo}</h1>  <p><b>Linguagem/Skill:</b> ${dica.skill}  <br><b>Categoria:</b> ${dica.categoria} <br> ${dica.descricao}</p> <button id="${dica.id}"  onclick="apagar(this)">Apagar</button> <button id="${dica.id}"  onclick="editar(this)">Editar</button></div> `;
+    conteudo.innerHTML = `<div id="card" class="${dica.id} titulocard" > <h1 >${dica.titulo}</h1>  <p><b>Linguagem/Skill:</b> ${dica.skill}  <br><b class="${dica.categoria}">Categoria:</b> ${dica.categoria} <br> ${dica.descricao}</p> <button id="${dica.id}"  onclick="apagar(this)">Apagar</button> <button id="${dica.id}"  onclick="editar(this)">Editar</button></div> `;
   });
 }
 
@@ -85,3 +127,5 @@ function input() {
 }
 
 window.onload = criar_cards();
+window.onload = contar();
+window.onload = pesquisar();
