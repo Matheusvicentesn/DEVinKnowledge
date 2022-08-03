@@ -4,19 +4,41 @@ function prencher() {
   document.getElementById("categoria").value = "FrontEnd";
   document.getElementById("descricao").value =
     "Se você está usando mais de um container flex para organizar elementos em um layout, provavelmente um deles deveria ser grid. Se você precisa aplicar diversas propriedades nos elementos filhos para ter maior controle do layout, você provavelmente deveria estar fazendo isso com grid.";
-  document.getElementById("youtube").value = "https://www.youtube.com/watch?v=3elGSZSWTbM&ab_channel=KevinPowell" ;
+  document.getElementById("youtube").value =
+    "https://www.youtube.com/watch?v=3elGSZSWTbM&ab_channel=KevinPowell";
+}
+
+function preenche_form(data) {
+  document.getElementById("id").value = data.id;
+  document.getElementById("titulo").value = data.titulo;
+  document.getElementById("skill").value = data.skill;
+  document.getElementById("categoria").value = data.categoria;
+  document.getElementById("descricao").value = data.descricao;
+  document.getElementById("youtube").value = data.youtube;
+}
+
+function salvar_edicao(id, titulo, skill, categoria, descricao, youtube) {
+  let array_editado = [   id = id, titulo = titulo, skill = skill,categoria= categoria,descricao= descricao,youtube = youtube,];
+  const data_full = JSON.parse(localStorage.getItem("dicas"));
+  console.log(data_full);
+  const posicao = data_full.findIndex((item) => item.id == id);
+  data_full.splice(posicao, 1, array_editado);
+  localStorage.setItem("dicas", JSON.stringify(data_full));
+    
+  // console.log(array_editado);
+
+
+  // console.log(posicao);
+
+
 }
 
 function editar(obj) {
   const data = JSON.parse(localStorage.getItem("dicas")).find(
     (item) => item.id == obj.id
   );
-  console.log(data.titulo);
-  document.getElementById("titulo").value = data.titulo;
-  document.getElementById("skill").value = data.skill
-  document.getElementById("categoria").value = data.categoria
-  document.getElementById("descricao").value = data.descricao
-  document.getElementById("youtube").value = data.youtube
+  preenche_form(data);
+
 }
 
 function apagar(obj) {
@@ -56,13 +78,18 @@ function salvar_localstorage(titulo, skill, categoria, descricao, youtube) {
 }
 
 function input() {
+  let id = document.getElementById("id").value;
   let titulo = document.getElementById("titulo").value;
   let skill = document.getElementById("skill").value;
   let categoria = document.getElementById("categoria").value;
   let descricao = document.getElementById("descricao").value;
   let youtube = document.getElementById("youtube").value;
 
-  salvar_localstorage(titulo, skill, categoria, descricao, youtube);
+  if (id == "") {
+    salvar_localstorage(titulo, skill, categoria, descricao, youtube);
+  } else {
+    salvar_edicao(id, titulo, skill, categoria, descricao, youtube);
+  }
 }
 
 window.onload = criar_cards();
