@@ -249,17 +249,46 @@ main {
   background: none;
 }
 
-.youtube{
+.youtube {
   color: rgb(231, 12, 12);
 }
 
-.editar{
+.editar {
   color: rgb(163, 184, 43);
 }
 
-.apagar{
+.apagar {
   color: rgb(192, 59, 35);
 }
 
+@media only screen and (max-width: 768px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 4fr 0.3fr 0.6fr 0.7fr;
+    grid-auto-columns: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: column dense;
+    grid-template-areas:
+      "DIV1"
+      "DIV2"
+      "DIV3"
+      "DIV4";
+  }
 
+  .DIV1 {
+    grid-area: DIV1;
+  }
 
+  .DIV2 {
+    grid-area: DIV2;
+  }
+
+  .DIV3 {
+    grid-area: DIV3;
+  }
+
+  .DIV4 {
+    grid-area: DIV4;
+  }
+}
