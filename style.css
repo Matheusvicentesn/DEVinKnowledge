@@ -1,79 +1,219 @@
-/* FORMULARIO LATERAL */
+main {
+  margin-top: 0px;
+  background-color: rgba(235, 231, 231, 0.589);
+}
 
-.divform {
+.container {
+  display: grid;
+  grid-template-columns: 300px 1fr 1fr 1fr;
+  grid-template-rows: 120px 60px 1fr 1fr;
+  grid-auto-columns: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row dense;
+  grid-template-areas:
+    "DIV1 DIV2 DIV2 DIV2"
+    "DIV1 DIV3 DIV3 DIV3"
+    "DIV1 DIV4 DIV4 DIV4"
+    "DIV1 DIV4 DIV4 DIV4";
+}
+
+/* FORMULARIO LATERAL */
+.DIV1 {
+  grid-area: DIV1;
   height: 100%;
-  width: 300px;
+  width: 310px;
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgb(34, 178, 207);
+  background-color: rgb(122, 115, 223);
   overflow-x: hidden;
-  padding-top: 20px;
+  padding-top: 25px;
 }
 
-.divform form {
+.DIV1 form {
+  text-align: left;
+  margin-left: 20px;
+}
+
+.DIV1 #btn {
   text-align: center;
 }
 
-.divform #btn {
+.DIV1 i {
+  font-size: 24px;
+}
+.DIV1 p {
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 0px;
+  text-align: left;
+  margin-left: 10px;
+}
+
+.DIV1 input {
+  width: 90%;
+  text-align: left;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  padding: 3px;
+  font-size: 16px;
+  text-align: center;
+  border-width: 5px;
+  border-radius: 30px;
+  border-style: solid;
+  border-color: #3d323d;
+  box-shadow: 0px 0px 14px 0px rgba(235, 230, 235, 0.72);
+  text-shadow: 0px 0px 0px rgba(42, 42, 42, 0.75);
+}
+
+.DIV1 select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 95%;
+  text-align: left;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  padding: 3px;
+  font-size: 16px;
+  text-align: center;
+  border-width: 5px;
+  border-radius: 30px;
+  border-style: solid;
+  border-color: #3d323d;
+  box-shadow: 0px 0px 14px 0px rgba(235, 230, 235, 0.72);
+  text-shadow: 0px 0px 0px rgba(42, 42, 42, 0.75);
+}
+
+.DIV1 textarea {
+  resize: none;
+}
+
+.center {
   text-align: center;
 }
 
-.content {
-  margin-left: 400px;
-  height: 100%;
-  width: auto;
+.center p {
+  text-align: center;
+}
+.btn {
+  text-align: center;
+}
+
+#btnEnviar {
+  background-color: #09f347;
+  border-radius: 28px;
+  border: 1px solid #18ab29;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 16px 31px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #2f6627;
+}
+#btnEnviar:hover {
+  background-color: #5cbf2a;
+}
+#btnEnviar:active {
   position: relative;
-  overflow: auto;
-  z-index: 1;
+  top: 1px;
 }
 
-/* BARRA DE STATUS */
+#btnLimpar {
+  background-color: #a9dd19;
+  border-radius: 28px;
+  border: 1px solid #97d328;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 16px 31px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #c1da37;
+}
+#btnLimpar:hover {
+  background-color: #c2d139;
+}
+#btnLimpar:active {
+  position: relative;
+  top: 1px;
+}
 
-.wrapper {
-  /* border: 1px solid blue; */
+.DIV2 {
+  grid-area: DIV2;
+  margin: auto;
+  display: block;
   text-align: center;
   width: 100%;
+  /* border: 1px solid red; */
+  height: 100px;
 }
-#total {
-  display: inline-block;
-  width: 50px;
-  height: 90px;
-  /* border: 1px solid red;   PARA VISUALIZAR */
-  text-align: center;
-}
-#front {
-  display: inline-block;
-  width: 50px;
-  height: 90px;
-  /* border: 1px solid red;   PARA VISUALIZAR */
-  text-align: center;
-}
-#back {
-  display: inline-block;
-  width: 50px;
-  height: 90px;
-  /* border: 1px solid red;   PARA VISUALIZAR */
-  text-align: center;
-}
-#full {
-  display: inline-block;
-  width: 50px;
-  height: 90px;
-  /* border: 1px solid red;   PARA VISUALIZAR */
-  text-align: center;
-}
+
+#total,
+#front,
+#back,
+#full,
 #soft {
   display: inline-block;
-  width: 50px;
+  width: 100px;
   height: 90px;
-  /* border: 1px solid red;   PARA VISUALIZAR */
+  /* border: 1px solid red;   PARA VISUALIZAR  */
   text-align: center;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 10px;
+  background-color: #ffffff;
+}
+
+.DIV2 h6 {
+  font-size: larger;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+.DIV2 p {
+  font-size: larger;
+  margin-bottom: 100px;
+  font-weight: 900;
+}
+
+.DIV3 {
+  grid-area: DIV3;
+  /* border: 1px solid red; */
+}
+
+.DIV3 input {
+  margin: auto;
+  display: block;
+  width: 90%;
+  /* margin-top: 15px; */
+  /* margin-left: 15px; */
+  border-color: #cccccc;
+  text-align: center;
+  font-size: 15px;
+  padding: 5px;
+  border-width: 2px;
+  border-radius: 15px;
+  border-style: double;
+  box-shadow: 0px 0px 8px 0px rgba(42, 42, 42, 0.74);
+  text-shadow: 0px 0px 0px rgba(42, 42, 42, 0.75);
+}
+
+.DIV3 i {
+  float: right;
+}
+
+.DIV4 {
+  grid-area: DIV4;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 50px;
 }
 
 #cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   grid-gap: 50px;
   /* border: 1px solid red; */
 }
@@ -83,15 +223,43 @@
   grid-template-rows: max-content 200px 1fr;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
-  background-color: #f1f1f1;
-    /* border: 1px solid red; */
+  background-color: #ffffff;
+  border-radius: 10px;
+  /* border: 1px solid red; */
+}
+
+#card h1 {
+  text-align: center;
+}
+
+#card p {
+  font-size: large;
+}
+
+.DIV4 button {
+  float: right;
+  border: none;
+  background: none;
+}
+
+.DIV4 i {
+  font-size: 30px;
+  padding: 15;
+  border: none;
+  background: none;
+}
+
+.youtube{
+  color: rgb(231, 12, 12);
+}
+
+.editar{
+  color: rgb(163, 184, 43);
+}
+
+.apagar{
+  color: rgb(192, 59, 35);
 }
 
 
-#card h1{
-    text-align: center;
-}
 
-#card p{
-    font-size: large;
-}

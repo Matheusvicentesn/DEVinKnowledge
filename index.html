@@ -6,59 +6,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DEVinKnowledge</title>
     <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/f7b473d476.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <main>
       <!-- Formulario -->
-      <div class="divform">
-        <form id="formulario">
-          <input type="hidden" id="id" />
-          <p>Titulo:</p>
-          <input type="text" id="titulo" />
-          <!-- minimo 8 max 64 carac obrigatorio -->
+      <div class="container">
+        <div class="DIV1">
+          <form id="formulario">
+            <i class="fa-solid fa-brain"> DEVinKnowledge</i>
+            <input type="hidden" id="id" />
+            <p>Titulo:</p>
+            <input type="text" id="titulo" />
+            <!-- minimo 8 max 64 carac obrigatorio -->
 
-          <p>Linguagem ou Skill</p>
-          <input type="text" id="skill" />
-          <!-- minimo 8 max 32 carac obrigatorio -->
-          <p>Categoria</p>
-          <select name="categorias" id="categoria">
-            <!-- obrigatorio -->
-            <option value="default">Selecione uma categoria</option>
-            <option value="FrontEnd">FrontEnd</option>
-            <option value="BackEnd">BackEnd</option>
-            <option value="FullStack">FullStack</option>
-            <option value="Soft">Comportamental/Soft</option>
-          </select>
-          <p>Descrição Completa (dica)</p>
-          <textarea
-            name="descricao"
-            id="descricao"
-            cols="30"
-            rows="10"
-          ></textarea>
-          <!-- obrigatorio min 16 max 1024 -->
-          <p>Vídeo do YouTube</p>
-          <input
-            type="text"
-            id="youtube"
-          /><!-- opcional validar que e uma url -->
-          <br /><br />
-          <button onclick="input()">Enviar</button>
-        </form>
-        <div id="btn">
-          <button onclick="prencher()">Preencher</button>
-          <button onclick="limpar()">Limpar</button>
+            <p>Linguagem ou Skill:</p>
+            <input type="text" id="skill" />
+            <!-- minimo 8 max 32 carac obrigatorio -->
+            <p>Categoria:</p>
+            <select name="categorias" id="categoria">
+              <!-- obrigatorio -->
+              <option value="default">Selecione uma categoria</option>
+              <option value="FrontEnd">FrontEnd</option>
+              <option value="BackEnd">BackEnd</option>
+              <option value="FullStack">FullStack</option>
+              <option value="Soft">Comportamental/Soft</option>
+            </select>
+
+            <div class="center">
+              <p>Descrição Completa (dica):</p>
+              <textarea
+                name="descricao"
+                id="descricao"
+                cols="30"
+                rows="10"
+              ></textarea>
+            </div>
+            <!-- obrigatorio min 16 max 1024 -->
+            <p>Vídeo do YouTube:</p>
+            <input
+              type="text"
+              id="youtube"
+            /><!-- opcional validar que e uma url -->
+            <br /><br />
+            <div class="btn">
+              <button id="btnLimpar"onclick="limpar()">Limpar</button>
+              <button id="btnEnviar" onclick="input()">Enviar</button>
+            </div>
+          </form>
+          <div id="btn">
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <button onclick="prencher()">Preencher</button>
+          </div>
         </div>
-      </div>
-      <div class="content">
+
         <!-- Barra de status -->
-        <div class="wrapper">
-          <input type="text" autocomplete="off" id="pesquisa" />
+        <div class="DIV2">
           <div id="total">
             <h6>Total</h6>
             <p class="total">38</p>
           </div>
-
           <div id="front">
             <h6>FrontEnd</h6>
             <p class="front">12</p>
@@ -79,14 +93,22 @@
             <p class="soft">14</p>
           </div>
         </div>
-
-        <!-- Modal -->
-        <div id="cards"></div>
+        <!-- Botao de pesquisa -->
+        <div class="DIV3">
+          <input
+            type="text"
+            autocomplete="off"
+            placeholder="Pesquisar"
+            id="pesquisa"
+          />
+        </div>
+        <div class="DIV4">
+          <!-- Modal -->
+          <div id="cards"></div>
+        </div>
       </div>
     </main>
   </body>
   <script src="script.js"></script>
-  <script>
-
-  </script>
+  <script></script>
 </html>

@@ -1,3 +1,11 @@
+function youtube(obj) {
+  console.log(obj)
+  var strWindowFeatures =
+    "location=yes,height=570,width=520,scrollbars=yes,status=yes";
+  var URL = obj + location.href;
+  var win = window.open(URL, "_blank", strWindowFeatures);
+}
+
 function limpar() {
   document.getElementById("formulario").reset();
 }
@@ -93,7 +101,11 @@ function criar_cards() {
     conteudo.setAttribute("value", categoria);
 
     document.getElementById("cards").appendChild(conteudo);
-    conteudo.innerHTML = `<div id="card" class="${dica.id} titulocard" > <h1 >${dica.titulo}</h1>  <p><b>Linguagem/Skill:</b> ${dica.skill}  <br><b class="${dica.categoria}">Categoria:</b> ${dica.categoria} <br> ${dica.descricao}</p> <button id="${dica.id}"  onclick="apagar(this)">Apagar</button> <button id="${dica.id}"  onclick="editar(this)">Editar</button></div> `;
+    if (dica.youtube) {
+      conteudo.innerHTML = `<div id="card" class="${dica.id} titulocard" > <h1 >${dica.titulo}</h1>  <p><b>Linguagem/Skill:</b> ${dica.skill}  <br><b class="${dica.categoria}">Categoria:</b> ${dica.categoria} <br> ${dica.descricao}</p> <div class="btnCard"><button class="apagar" id="${dica.id}"  onclick="apagar(this)"><i class="fa-solid fa-trash"></i></button> <button id="${dica.id}" class="editar" onclick="editar(this)"><i class="fa-solid fa-pen-to-square"></i></button> <button id="${dica.youtube}" class="youtube" onclick="youtube(id)"><i class="fa-brands fa-youtube youtubeH"></i></button></div></div> `;
+    } else {
+      conteudo.innerHTML = `<div id="card" class="${dica.id} titulocard" > <h1 >${dica.titulo}</h1>  <p><b>Linguagem/Skill:</b> ${dica.skill}  <br><b class="${dica.categoria}">Categoria:</b> ${dica.categoria} <br> ${dica.descricao}</p> <div class="btnCard"><div class="btnCard"><button class="apagar" id="${dica.id}"  onclick="apagar(this)"><i class="fa-solid fa-trash"></i></button> <button id="${dica.id}" class="editar" onclick="editar(this)"><i class="fa-solid fa-pen-to-square"></i></button></div></div> `;
+    }
   });
 }
 
