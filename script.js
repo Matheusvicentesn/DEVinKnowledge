@@ -141,6 +141,7 @@ function salvar_edicao(id, titulo, skill, categoria, descricao, youtube) {
   const posicao = data_full.findIndex((item) => item.id == id);
   data_full.splice(posicao, 1, array_editado);
   localStorage.setItem("dicas", JSON.stringify(data_full));
+  window.alert(`Item ${titulo} Editado`)
   location.reload();
 }
 
@@ -158,6 +159,7 @@ function apagar(obj) {
       (item) => item.id !== obj.id
     );
     localStorage.setItem("dicas", JSON.stringify(data));
+    window.alert(`Item apagado`)
     location.reload();
   }
   else{
@@ -195,6 +197,7 @@ function salvar_localstorage(titulo, skill, categoria, descricao, youtube) {
     youtube: youtube,
   });
   localStorage.setItem("dicas", JSON.stringify(dicas));
+  window.alert(`Item ${titulo} adcionado`)
   location.reload();
 }
 

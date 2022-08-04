@@ -4,11 +4,14 @@ body {
   padding: 0;
   font-family: "Roboto";
   font-size: 15px;
+  background-color: #212121;
+  color: white;
 }
 
 main {
   margin-top: 0px;
-  background-color: rgba(221, 210, 210, 0.589);
+  background-color: #212121;
+  color: white;
 }
 
 .container {
@@ -29,13 +32,14 @@ main {
 .DIV1 {
   grid-area: DIV1;
   height: 100%;
-  width: 310px;
+  width: 320px;
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgb(122, 115, 223);
+  background-color: #323232;
   overflow-x: hidden;
   padding-top: 25px;
+  border-radius: 5px;
 }
 
 .DIV1 form {
@@ -56,6 +60,7 @@ main {
   margin-bottom: 0px;
   text-align: left;
   margin-left: 10px;
+  margin-bottom: 5px;
 }
 
 .DIV1 input {
@@ -64,13 +69,14 @@ main {
   margin-bottom: 0px;
   margin-top: 0px;
   padding: 3px;
-  font-size: 16px;
+  border-color: #cccccc;
   text-align: center;
-  border-width: 5px;
-  border-radius: 30px;
-  border-style: solid;
-  border-color: #3d323d;
-  box-shadow: 0px 0px 14px 0px rgba(235, 230, 235, 0.72);
+  font-size: 15px;
+  padding: 5px;
+  border-width: 2px;
+  border-radius: 15px;
+  border-style: double;
+  box-shadow: 0px 0px 8px 0px rgba(42, 42, 42, 0.74);
   text-shadow: 0px 0px 0px rgba(42, 42, 42, 0.75);
 }
 
@@ -82,13 +88,14 @@ main {
   margin-bottom: 0px;
   margin-top: 0px;
   padding: 3px;
-  font-size: 16px;
+  border-color: #cccccc;
   text-align: center;
-  border-width: 5px;
-  border-radius: 30px;
-  border-style: solid;
-  border-color: #3d323d;
-  box-shadow: 0px 0px 14px 0px rgba(235, 230, 235, 0.72);
+  font-size: 15px;
+  padding: 5px;
+  border-width: 2px;
+  border-radius: 15px;
+  border-style: double;
+  box-shadow: 0px 0px 8px 0px rgba(42, 42, 42, 0.74);
   text-shadow: 0px 0px 0px rgba(42, 42, 42, 0.75);
 }
 
@@ -108,9 +115,9 @@ main {
 }
 
 #btnEnviar {
-  background-color: #09f347;
+  background-color: #0D7377;
   border-radius: 28px;
-  border: 1px solid #18ab29;
+  border: 1px solid #0D7377;
   display: inline-block;
   cursor: pointer;
   color: #ffffff;
@@ -118,10 +125,10 @@ main {
   font-size: 17px;
   padding: 16px 31px;
   text-decoration: none;
-  text-shadow: 0px 1px 0px #2f6627;
+  text-shadow: 0px 1px 0px #0D7377;
 }
 #btnEnviar:hover {
-  background-color: #5cbf2a;
+  background-color: #14FFEC;
 }
 #btnEnviar:active {
   position: relative;
@@ -129,9 +136,9 @@ main {
 }
 
 #btnLimpar {
-  background-color: #a9dd19;
+  background-color: #0D7377;
   border-radius: 28px;
-  border: 1px solid #97d328;
+  border: 1px solid #0D7377;
   display: inline-block;
   cursor: pointer;
   color: #ffffff;
@@ -139,10 +146,10 @@ main {
   font-size: 17px;
   padding: 16px 31px;
   text-decoration: none;
-  text-shadow: 0px 1px 0px #c1da37;
+  text-shadow: 0px 1px 0px #0D7377;
 }
 #btnLimpar:hover {
-  background-color: #c2d139;
+  background-color: #14FFEC;
 }
 #btnLimpar:active {
   position: relative;
@@ -172,7 +179,8 @@ main {
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 10px;
-  background-color: #ffffff;
+  background-color: #323232;
+  
 }
 
 .DIV2 h6 {
@@ -195,8 +203,7 @@ main {
   margin: auto;
   display: block;
   width: 90%;
-  /* margin-top: 15px; */
-  /* margin-left: 15px; */
+
   border-color: #cccccc;
   text-align: center;
   font-size: 15px;
@@ -231,7 +238,7 @@ main {
   grid-template-rows: max-content 200px 1fr;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
-  background-color: #ffffff;
+  background-color: #323232;
   border-radius: 10px;
   /* border: 1px solid red; */
 }
@@ -262,19 +269,19 @@ main {
 }
 
 .youtube {
-  color: rgb(231, 12, 12);
+  color: #c02d54;
 }
 
 .editar {
-  color: rgb(163, 184, 43);
+  color: #EED180;
 }
 
 .apagar {
-  color: rgb(192, 59, 35);
+  color: #D61C4E;
 }
 
 #alertTitulo, #alertSkill, #alertCategoria, #alertDescricao, #alertYoutube {
-  color: red;
+  color: #D61C4E;
   font-size: 14px;
   text-align: left;
 }
@@ -285,7 +292,7 @@ main {
   .container {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 286px 850px 60px 60px;
+    grid-template-rows: 286px 700px 60px 60px;
     grid-auto-columns: 1fr;
     gap: 0px 0px;
     grid-auto-flow: row;
@@ -299,15 +306,19 @@ main {
   .DIV1 {
     /* border: 1px solid red; */
     grid-area: DIV1;
-    height: 1000px;
+    height: 800px;
     width: 100%;
     position: relative;
     top: 0;
     left: 0;
-    background-color: rgb(122, 115, 223);
+    background-color: #323232;
     overflow-x: hidden;
     /* padding-top: 25px; */
     margin-bottom: 0;
+  }
+
+  .DIV1 form p{
+    text-align: center;
   }
 
   .DIV2 {
