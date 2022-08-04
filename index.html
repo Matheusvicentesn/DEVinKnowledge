@@ -10,6 +10,10 @@
       src="https://kit.fontawesome.com/f7b473d476.js"
       crossorigin="anonymous"
     ></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <main>
@@ -21,20 +25,23 @@
             <input type="hidden" id="id" />
             <p>Titulo:</p>
             <input type="text" id="titulo" />
+            <p id="alertTitulo"></p>
             <!-- minimo 8 max 64 carac obrigatorio -->
 
             <p>Linguagem ou Skill:</p>
             <input type="text" id="skill" />
+            <p id="alertSkill"></p>
             <!-- minimo 8 max 32 carac obrigatorio -->
             <p>Categoria:</p>
             <select name="categorias" id="categoria">
               <!-- obrigatorio -->
-              <option value="default">Selecione uma categoria</option>
+              <option value="0">Selecione uma categoria</option>
               <option value="FrontEnd">FrontEnd</option>
               <option value="BackEnd">BackEnd</option>
               <option value="FullStack">FullStack</option>
               <option value="Soft">Comportamental/Soft</option>
             </select>
+            <p id="alertCategoria"></p>
 
             <div class="center">
               <p>Descrição Completa (dica):</p>
@@ -45,19 +52,17 @@
                 rows="10"
               ></textarea>
             </div>
+            <p id="alertDescricao"></p>
             <!-- obrigatorio min 16 max 1024 -->
             <p>Vídeo do YouTube:</p>
-            <input
-              type="text"
-              id="youtube"
-            /><!-- opcional validar que e uma url -->
+            <input type="text" id="youtube" />
+            <p id="alertYoutube"></p>
             <br /><br />
-            <div class="btn">
-              <button id="btnLimpar"onclick="limpar()">Limpar</button>
-              <button id="btnEnviar" onclick="input()">Enviar</button>
-            </div>
+            <div class="btn"></div>
           </form>
           <div id="btn">
+            <button id="btnLimpar" onclick="limpar()">Limpar</button>
+            <button id="btnEnviar" onclick="input()">Enviar</button>
             <br />
             <br />
             <br />

@@ -1,6 +1,14 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto";
+  font-size: 15px;
+}
+
 main {
   margin-top: 0px;
-  background-color: rgba(235, 231, 231, 0.589);
+  background-color: rgba(221, 210, 210, 0.589);
 }
 
 .container {
@@ -214,14 +222,14 @@ main {
 #cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  grid-gap: 50px;
+  grid-gap: 40px;
   /* border: 1px solid red; */
 }
 
 #card {
   display: grid;
   grid-template-rows: max-content 200px 1fr;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
   background-color: #ffffff;
   border-radius: 10px;
@@ -234,19 +242,23 @@ main {
 
 #card p {
   font-size: large;
+  margin-top: 0px;
 }
 
 .DIV4 button {
-  float: right;
   border: none;
   background: none;
 }
 
 .DIV4 i {
-  font-size: 30px;
+  font-size: 24px;
   padding: 15;
   border: none;
   background: none;
+}
+
+.DIV4 .btnCard {
+  text-align: right;
 }
 
 .youtube {
@@ -261,14 +273,22 @@ main {
   color: rgb(192, 59, 35);
 }
 
-@media only screen and (max-width: 768px) {
+#alertTitulo, #alertSkill, #alertCategoria, #alertDescricao, #alertYoutube {
+  color: red;
+  font-size: 14px;
+  text-align: left;
+}
+
+
+
+@media only screen and (max-width: 835px) {
   .container {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 4fr 0.3fr 0.6fr 0.7fr;
+    grid-template-rows: 286px 850px 60px 60px;
     grid-auto-columns: 1fr;
     gap: 0px 0px;
-    grid-auto-flow: column dense;
+    grid-auto-flow: row;
     grid-template-areas:
       "DIV1"
       "DIV2"
@@ -277,18 +297,33 @@ main {
   }
 
   .DIV1 {
+    /* border: 1px solid red; */
     grid-area: DIV1;
+    height: 1000px;
+    width: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    background-color: rgb(122, 115, 223);
+    overflow-x: hidden;
+    /* padding-top: 25px; */
+    margin-bottom: 0;
   }
 
   .DIV2 {
     grid-area: DIV2;
+    /* border: 1px solid red; */
+    margin-bottom: 0;
   }
 
   .DIV3 {
     grid-area: DIV3;
+    /* border: 1px solid red; */
+    margin-top: 50px;
   }
 
   .DIV4 {
+    margin-top: 50px;
     grid-area: DIV4;
   }
 }

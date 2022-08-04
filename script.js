@@ -1,5 +1,72 @@
+function validar(id, titulo, skill, categoria, descricao, youtube) {
+  let alertTitulo = document.getElementById("alertTitulo");
+  let alertSkill = document.getElementById("alertSkill");
+  let alertCategoria = document.getElementById("alertCategoria");
+  let alertDescricao = document.getElementById("alertDescricao");
+  let alertYoutube = document.getElementById("alertYoutube");
+  let tituloVerificado = "";
+  let skillVerificado = "";
+  let categoriaVerificado = "";
+  let descricaoVerificado = "";
+  let youtubeVerificado = "";
+  var p =
+    /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+
+  if (titulo.length >= 8 && titulo.length <= 64) {
+    tituloVerificado = true;
+  } else {
+    alertTitulo.innerHTML = "Titulo deve conter entre 8 à 64 caracteres";
+  }
+
+  if (skill.length >= 3 && skill.length <= 32) {
+    skillVerificado = true;
+  } else {
+    alertSkill.innerHTML = "Linguagem deve conter entre 8 à 32 caracteres";
+  }
+  if (categoria == 0) {
+    alertCategoria.innerHTML = "Preencha o campo corretamente";
+  } else {
+    categoriaVerificado = true;
+  }
+  if (descricao.length > 8 && descricao.length < 1024) {
+    descricaoVerificado = true;
+  } else {
+    alertDescricao.innerHTML =
+      "Descricao deve conter entre 8 à 1024 caracteres";
+  }
+
+  if (youtube) {
+    if (youtube.match(p)) {
+      youtubeVerificado = true;
+    } else {
+      alertYoutube.innerHTML = "Digite um link válido";
+    }
+  } else {
+    youtubeVerificado = true;
+  }
+
+  if (
+    id &&
+    tituloVerificado &&
+    skillVerificado &&
+    categoriaVerificado &&
+    descricaoVerificado &&
+    youtubeVerificado
+  ) {
+    salvar_edicao(id, titulo, skill, categoria, descricao, youtube);
+  } else if (
+    tituloVerificado &&
+    skillVerificado &&
+    categoriaVerificado &&
+    descricaoVerificado &&
+    youtubeVerificado
+  ) {
+    salvar_localstorage(titulo, skill, categoria, descricao, youtube);
+  }
+}
+
 function youtube(obj) {
-  console.log(obj)
+  console.log(obj);
   var strWindowFeatures =
     "location=yes,height=570,width=520,scrollbars=yes,status=yes";
   var URL = obj + location.href;
@@ -74,6 +141,7 @@ function salvar_edicao(id, titulo, skill, categoria, descricao, youtube) {
   const posicao = data_full.findIndex((item) => item.id == id);
   data_full.splice(posicao, 1, array_editado);
   localStorage.setItem("dicas", JSON.stringify(data_full));
+  location.reload();
 }
 
 function editar(obj) {
@@ -102,9 +170,9 @@ function criar_cards() {
 
     document.getElementById("cards").appendChild(conteudo);
     if (dica.youtube) {
-      conteudo.innerHTML = `<div id="card" class="${dica.id} titulocard" > <h1 >${dica.titulo}</h1>  <p><b>Linguagem/Skill:</b> ${dica.skill}  <br><b class="${dica.categoria}">Categoria:</b> ${dica.categoria} <br> ${dica.descricao}</p> <div class="btnCard"><button class="apagar" id="${dica.id}"  onclick="apagar(this)"><i class="fa-solid fa-trash"></i></button> <button id="${dica.id}" class="editar" onclick="editar(this)"><i class="fa-solid fa-pen-to-square"></i></button> <button id="${dica.youtube}" class="youtube" onclick="youtube(id)"><i class="fa-brands fa-youtube youtubeH"></i></button></div></div> `;
+      conteudo.innerHTML = `<div id="card" class="${dica.id} titulocard" > <h1 >${dica.titulo}</h1>  <p><b>Linguagem/Skill:</b> ${dica.skill}</br> <b class="${dica.categoria}">Categoria:</b> ${dica.categoria} <br> <br> ${dica.descricao}</p> <div class="btnCard"><button id="${dica.youtube}" class="youtube" onclick="youtube(id)"><i class="fa-brands fa-youtube youtubeH"></i></button> <button id="${dica.id}" class="editar" onclick="editar(this)"><i class="fa-solid fa-pen-to-square"></i></button> <button class="apagar" id="${dica.id}"  onclick="apagar(this)"><i class="fa-solid fa-trash"></i></button></div></div> `;
     } else {
-      conteudo.innerHTML = `<div id="card" class="${dica.id} titulocard" > <h1 >${dica.titulo}</h1>  <p><b>Linguagem/Skill:</b> ${dica.skill}  <br><b class="${dica.categoria}">Categoria:</b> ${dica.categoria} <br> ${dica.descricao}</p> <div class="btnCard"><div class="btnCard"><button class="apagar" id="${dica.id}"  onclick="apagar(this)"><i class="fa-solid fa-trash"></i></button> <button id="${dica.id}" class="editar" onclick="editar(this)"><i class="fa-solid fa-pen-to-square"></i></button></div></div> `;
+      conteudo.innerHTML = `<div id="card" class="${dica.id} titulocard" > <h1 >${dica.titulo}</h1>  <p><b>Linguagem/Skill:</b> ${dica.skill}  <br><b class="${dica.categoria}">Categoria:</b> ${dica.categoria} <br> <br>${dica.descricao}</p> <div class="btnCard"><div class="btnCard"><button id="${dica.id}" class="editar" onclick="editar(this)"><i class="fa-solid fa-pen-to-square"></i></button><button class="apagar" id="${dica.id}"  onclick="apagar(this)"><i class="fa-solid fa-trash"></i></button> </div></div> `;
     }
   });
 }
@@ -121,6 +189,7 @@ function salvar_localstorage(titulo, skill, categoria, descricao, youtube) {
     youtube: youtube,
   });
   localStorage.setItem("dicas", JSON.stringify(dicas));
+  location.reload();
 }
 
 function input() {
@@ -130,12 +199,7 @@ function input() {
   let categoria = document.getElementById("categoria").value;
   let descricao = document.getElementById("descricao").value;
   let youtube = document.getElementById("youtube").value;
-
-  if (id == "") {
-    salvar_localstorage(titulo, skill, categoria, descricao, youtube);
-  } else {
-    salvar_edicao(id, titulo, skill, categoria, descricao, youtube);
-  }
+  validar(id, titulo, skill, categoria, descricao, youtube);
 }
 
 window.onload = criar_cards();
