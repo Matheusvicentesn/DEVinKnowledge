@@ -80,11 +80,9 @@ function pesquisar() {
   var pesquisa = document.getElementById("pesquisa");
   var titulocard = document.getElementsByClassName("titulocard");
   pesquisa.onkeyup = function () {
-    var search_value = pesquisa.value.toLowerCase();
+    var pesquisar = pesquisa.value.toLowerCase();
     for (var l = 0; l < titulocard.length; l++) {
-      if (
-        titulocard[l].innerHTML.toLocaleLowerCase().search(search_value) == -1
-      ) {
+      if (titulocard[l].innerHTML.toLocaleLowerCase().search(pesquisar) == -1) {
         titulocard[l].style.display = "none";
       } else {
         titulocard[l].style.display = "block";
