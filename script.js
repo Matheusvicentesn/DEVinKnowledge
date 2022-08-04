@@ -152,12 +152,18 @@ function editar(obj) {
 }
 
 function apagar(obj) {
-  console.log(obj.id);
-  const data = JSON.parse(localStorage.getItem("dicas")).filter(
-    (item) => item.id !== obj.id
-  );
-  localStorage.setItem("dicas", JSON.stringify(data));
-  location.reload();
+  let confirmacao = confirm("Deseja apagar ?");
+  if (confirmacao === true) {
+    const data = JSON.parse(localStorage.getItem("dicas")).filter(
+      (item) => item.id !== obj.id
+    );
+    localStorage.setItem("dicas", JSON.stringify(data));
+    location.reload();
+  }
+  else{
+
+  }
+
 }
 
 function criar_cards() {
