@@ -126,6 +126,7 @@ function limparForm() {
 
 function limparPesquisa() {
   document.getElementById("formularioPesquisa").reset();
+  location.reload();
 }
 
 function pesquisar() {
