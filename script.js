@@ -248,7 +248,7 @@ function primeiroAcesso() {
   var dicas = JSON.parse(localStorage.getItem("dicas") || "[]");
   var id = "id" + new Date().getTime();
   if ("dicas" in localStorage) {
-    console.log(`Vicente n corno`);
+    return;
   } else {
     dicas.push({
       id: id,

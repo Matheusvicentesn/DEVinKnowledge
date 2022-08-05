@@ -183,6 +183,7 @@ main {
 }
 .btn {
   text-align: center;
+  transition: all 0.2s;
 }
 
 #btnPesquisar {
@@ -197,10 +198,12 @@ main {
   padding: 10px 10px;
   text-decoration: none;
   text-shadow: 0px 1px 0px #0d7377;
+  transition: all 0.2s;
 }
 
 #btnPesquisar:hover {
   background-color: #14ffec;
+  transform: scale(1.04);
 }
 
 #btnPesquisar:active {
@@ -220,10 +223,13 @@ main {
   padding: 16px 31px;
   text-decoration: none;
   text-shadow: 0px 1px 0px #0d7377;
+  margin-left: 18px;
+  transition: all 0.2s;
 }
 
 #btnEnviar:hover {
   background-color: #14ffec;
+  transform: scale(1.04);
 }
 
 #btnEnviar:active {
@@ -243,10 +249,12 @@ main {
   padding: 16px 31px;
   text-decoration: none;
   text-shadow: 0px 1px 0px #0d7377;
+  transition: all 0.2s;
 }
 
 #btnLimpar:hover {
   background-color: #14ffec;
+  transform: scale(1.04);
 }
 
 #btnLimpar:active {
@@ -272,7 +280,6 @@ main {
   text-align: center;
   width: 100%;
   /* border: 1px solid red; */
-  height: 100px;
 }
 
 #total,
@@ -289,12 +296,47 @@ main {
   -moz-border-radius: 5px;
   -webkit-border-radius: 10px;
   background-color: #323232;
+  -webkit-box-shadow: 6px 6px 7px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 6px 6px 7px 2px rgba(0, 0, 0, 0.2);
+  margin-left: 16px;
+  transition: all 0.2s;
+}
+
+#total:hover {
+  background-color: #fff;
+  color: #323232;
+  transform: scale(1.04);
+}
+
+#front:hover {
+  background-color: #fff;
+  color: #323232;
+  transform: scale(1.04);
+}
+
+#back:hover {
+  background-color: #fff;
+  color: #323232;
+  transform: scale(1.04);
+}
+
+#full:hover {
+  background-color: #fff;
+  color: #323232;
+  transform: scale(1.04);
+}
+
+#soft:hover {
+  background-color: #fff;
+  color: #323232;
+  transform: scale(1.04);
 }
 
 .DIV2 h6 {
   font-size: larger;
   margin-top: 10px;
   margin-bottom: 0px;
+  padding-bottom: 0px;
 }
 
 .DIV2 p {
@@ -360,6 +402,11 @@ main {
   background-color: #323232;
   border-radius: 10px;
   /* border: 1px solid red; */
+  transition: all 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.04);
 }
 
 .card h1 {
