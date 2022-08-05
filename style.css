@@ -1,3 +1,4 @@
+/* Global */
 html,
 body {
   margin: 0;
@@ -26,6 +27,74 @@ main {
     "DIV1 DIV3 DIV3 DIV3"
     "DIV1 DIV4 DIV4 DIV4"
     "DIV1 DIV4 DIV4 DIV4";
+}
+
+/* Modal */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 70px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.822);
+}
+
+.conteudoModal {
+  overflow: auto;
+  margin: auto;
+  width: 50%;
+  text-justify: center;
+  background-color: #323232;
+  padding: 20px;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.conteudoModal h1 {
+  text-align: center;
+}
+
+.conteudoModal p {
+  font-size: large;
+  text-align: justify;
+}
+
+.video-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.video-container::after {
+  padding-top: 56.25%;
+  display: block;
+  content: "";
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /* FORMULARIO LATERAL */
@@ -114,10 +183,33 @@ main {
   text-align: center;
 }
 
-#btnEnviar {
-  background-color: #0D7377;
+#btnPesquisar {
+  background-color: #0d7377;
   border-radius: 28px;
-  border: 1px solid #0D7377;
+  border: 1px solid #0d7377;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 10px 10px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #0d7377;
+  
+}
+
+#btnPesquisar:hover {
+  background-color: #14ffec;
+}
+
+#btnPesquisar:active {
+  position: relative;
+  top: 1px;
+}
+#btnEnviar {
+  background-color: #0d7377;
+  border-radius: 28px;
+  border: 1px solid #0d7377;
   display: inline-block;
   cursor: pointer;
   color: #ffffff;
@@ -125,20 +217,22 @@ main {
   font-size: 17px;
   padding: 16px 31px;
   text-decoration: none;
-  text-shadow: 0px 1px 0px #0D7377;
+  text-shadow: 0px 1px 0px #0d7377;
 }
+
 #btnEnviar:hover {
-  background-color: #14FFEC;
+  background-color: #14ffec;
 }
+
 #btnEnviar:active {
   position: relative;
   top: 1px;
 }
 
 #btnLimpar {
-  background-color: #0D7377;
+  background-color: #0d7377;
   border-radius: 28px;
-  border: 1px solid #0D7377;
+  border: 1px solid #0d7377;
   display: inline-block;
   cursor: pointer;
   color: #ffffff;
@@ -146,16 +240,29 @@ main {
   font-size: 17px;
   padding: 16px 31px;
   text-decoration: none;
-  text-shadow: 0px 1px 0px #0D7377;
+  text-shadow: 0px 1px 0px #0d7377;
 }
+
 #btnLimpar:hover {
-  background-color: #14FFEC;
+  background-color: #14ffec;
 }
+
 #btnLimpar:active {
   position: relative;
   top: 1px;
 }
 
+#alertTitulo,
+#alertSkill,
+#alertCategoria,
+#alertDescricao,
+#alertYoutube {
+  color: #d61c4e;
+  font-size: 14px;
+  text-align: left;
+}
+
+/* Cards indicativos */
 .DIV2 {
   grid-area: DIV2;
   margin: auto;
@@ -180,7 +287,6 @@ main {
   -moz-border-radius: 5px;
   -webkit-border-radius: 10px;
   background-color: #323232;
-  
 }
 
 .DIV2 h6 {
@@ -188,22 +294,24 @@ main {
   margin-top: 10px;
   margin-bottom: 0px;
 }
+
 .DIV2 p {
   font-size: larger;
   margin-bottom: 100px;
   font-weight: 900;
 }
 
+/* Área de pesquisa */
+
 .DIV3 {
   grid-area: DIV3;
+  display: inline-block;
   /* border: 1px solid red; */
 }
 
 .DIV3 input {
-  margin: auto;
-  display: block;
-  width: 90%;
-
+  margin-left: 50px;
+  width: 100%;
   border-color: #cccccc;
   text-align: center;
   font-size: 15px;
@@ -215,9 +323,17 @@ main {
   text-shadow: 0px 0px 0px rgba(42, 42, 42, 0.75);
 }
 
-.DIV3 i {
-  float: right;
+#formPesquisa {
+  display: inline-block;
+  width: 80%;
 }
+
+#btnPesquisa {
+  display: inline-block;
+  margin-left: 80px;
+}
+
+/* Cards com a dicas */
 
 .DIV4 {
   grid-area: DIV4;
@@ -233,7 +349,7 @@ main {
   /* border: 1px solid red; */
 }
 
-#card {
+.card {
   display: grid;
   grid-template-rows: max-content 200px 1fr;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
@@ -243,11 +359,11 @@ main {
   /* border: 1px solid red; */
 }
 
-#card h1 {
+.card h1 {
   text-align: center;
 }
 
-#card p {
+.card p {
   font-size: large;
   margin-top: 0px;
 }
@@ -268,27 +384,47 @@ main {
   text-align: right;
 }
 
+.modalBtn {
+  color: #b2c3e9;
+}
 .youtube {
   color: #c02d54;
 }
 
 .editar {
-  color: #EED180;
+  color: #eed180;
 }
 
 .apagar {
-  color: #D61C4E;
+  color: #d61c4e;
 }
 
-#alertTitulo, #alertSkill, #alertCategoria, #alertDescricao, #alertYoutube {
-  color: #D61C4E;
-  font-size: 14px;
-  text-align: left;
+/* Responsividade */
+@media only screen and (max-width: 1103px) {
+  #formPesquisa {
+    display: inline-block;
+    width: 70%;
+  }
+
+  #btnPesquisa {
+    display: inline-block;
+    margin-left: 70px;
+  }
 }
 
+@media only screen and (max-width: 1029px) {
+  #formPesquisa {
+    display: inline-block;
+    width: 60%;
+  }
 
+  #btnPesquisa {
+    display: inline-block;
+    margin-left: 80px;
+  }
+}
 
-@media only screen and (max-width: 835px) {
+@media only screen and (max-width: 890px) {
   .container {
     display: grid;
     grid-template-columns: 1fr;
@@ -317,7 +453,7 @@ main {
     margin-bottom: 0;
   }
 
-  .DIV1 form p{
+  .DIV1 form p {
     text-align: center;
   }
 
@@ -337,4 +473,6 @@ main {
     margin-top: 50px;
     grid-area: DIV4;
   }
+
+
 }

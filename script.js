@@ -1,3 +1,50 @@
+function montarModal(data) {
+  var modal = document.getElementById("modal");
+  var botaoX = document.getElementsByClassName("close")[0];
+  modal.style.display = "block";
+
+  // Fechar no X
+  botaoX.onclick = function () {
+    modal.style.display = "none";
+  };
+
+  // Quando usuário clicar fora do modal será fechado
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+
+  var modalTitulo = document.getElementById("modalTitulo");
+  modalTitulo.innerHTML = data.titulo;
+
+  var modalSkill = document.getElementById("modalSkill");
+  modalSkill.innerHTML = `Linguagem/Skill: ${data.skill}`;
+
+  var modalCategoria = document.getElementById("modalCategoria");
+  modalCategoria.innerHTML = `Categoria: ${data.categoria}`;
+
+  var modalDescricao = document.getElementById("modalDescricao");
+  modalDescricao.innerHTML = data.descricao;
+
+  if (data.youtube) {
+    let youtube = data.youtube.replace("watch?v=", "embed/"); //Possibilita video ser executado
+    console.log(youtube);
+    var modalYoutube = document.getElementById("modalYoutube");
+    modalYoutube.innerHTML = `<iframe id="player" type="text/html" width="500" height="390"src="${youtube}"frameborder="0"></iframe>`;
+  } else {
+    modalYoutube.remove();
+  }
+}
+
+function capturarModal(obj) {
+  const data = JSON.parse(localStorage.getItem("dicas")).find(
+    (item) => item.id == obj.id
+  );
+  console.log(data);
+  montarModal(data);
+}
+
 function validar(id, titulo, skill, categoria, descricao, youtube) {
   let alertTitulo = document.getElementById("alertTitulo");
   let alertSkill = document.getElementById("alertSkill");
@@ -18,7 +65,7 @@ function validar(id, titulo, skill, categoria, descricao, youtube) {
     alertTitulo.innerHTML = "Titulo deve conter entre 8 à 64 caracteres";
   }
 
-  if (skill.length >= 3 && skill.length <= 32) {
+  if (skill.length >= 4 && skill.length <= 16) {
     skillVerificado = true;
   } else {
     alertSkill.innerHTML = "Linguagem deve conter entre 8 à 32 caracteres";
@@ -28,7 +75,7 @@ function validar(id, titulo, skill, categoria, descricao, youtube) {
   } else {
     categoriaVerificado = true;
   }
-  if (descricao.length > 8 && descricao.length < 1024) {
+  if (descricao.length > 8 && descricao.length < 512) {
     descricaoVerificado = true;
   } else {
     alertDescricao.innerHTML =
@@ -73,9 +120,14 @@ function youtube(obj) {
   var win = window.open(URL, "_blank", strWindowFeatures);
 }
 
-function limpar() {
+function limparForm() {
   document.getElementById("formulario").reset();
 }
+
+function limparPesquisa() {
+  document.getElementById("formularioPesquisa").reset();
+}
+
 function pesquisar() {
   var pesquisa = document.getElementById("pesquisa");
   // var titulocard = document.getElementsByClassName("titulocard");
@@ -86,14 +138,6 @@ function pesquisar() {
       element.titulo.toLowerCase().includes(pesquisar)
     );
     criar_cards(itemFiltrados);
-    console.log(itemFiltrados);
-    // for (var l = 0; l < titulocard.length; l++) {
-    //   if (titulocard[l].innerHTML.toLocaleLowerCase().search(pesquisar) == -1) {
-    //     titulocard[l].style.display = "none";
-    //   } else {
-    //     titulocard[l].style.display = "block";
-    //   }
-    // }
   };
 }
 
@@ -121,13 +165,17 @@ function contar() {
 }
 
 function prencher() {
-  document.getElementById("titulo").value = "GRID vs Flex-box";
-  document.getElementById("skill").value = "CSS";
-  document.getElementById("categoria").value = "FrontEnd";
-  document.getElementById("descricao").value =
-    "Se você está usando mais de um container flex para organizar elementos em um layout, provavelmente um deles deveria ser grid. Se você precisa aplicar diversas propriedades nos elementos filhos para ter maior controle do layout, você provavelmente deveria estar fazendo isso com grid.";
-  document.getElementById("youtube").value =
-    "https://www.youtube.com/watch?v=3elGSZSWTbM&ab_channel=KevinPowell";
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Insert") {
+      document.getElementById("titulo").value = "GRID vs Flex-box";
+      document.getElementById("skill").value = "CSS2";
+      document.getElementById("categoria").value = "FrontEnd";
+      document.getElementById("descricao").value =
+        "Se você está usando mais de um container flex para organizar elementos em um layout, provavelmente um deles deveria ser grid. Se você precisa aplicar diversas propriedades nos elementos filhos para ter maior controle do layout, você provavelmente deveria estar fazendo isso com grid.";
+      document.getElementById("youtube").value =
+        "https://www.youtube.com/watch?v=3elGSZSWTbM&ab_channel=KevinPowell";
+    }
+  });
 }
 
 function preenche_form(data) {
@@ -177,12 +225,41 @@ function criar_cards(dicas_obj = JSON.parse(localStorage.getItem("dicas"))) {
     conteudo.setAttribute("value", categoria);
     document.getElementById("cards").appendChild(conteudo);
     if (dica.youtube) {
-      conteudo.innerHTML = `<div id="card" class="${dica.id} titulocard" > <h1 >${dica.titulo}</h1>  <p><b>Linguagem/Skill:</b> ${dica.skill}</br> <b class="${dica.categoria}">Categoria:</b> ${dica.categoria} <br> <br> ${dica.descricao}</p> <div class="btnCard"><button id="${dica.youtube}" class="youtube" onclick="youtube(id)"><i class="fa-brands fa-youtube youtubeH"></i></button> <button id="${dica.id}" class="editar" onclick="editar(this)"><i class="fa-solid fa-pen-to-square"></i></button> <button class="apagar" id="${dica.id}"  onclick="apagar(this)"><i class="fa-solid fa-trash"></i></button></div></div> `;
+      conteudo.innerHTML = `<div id="${dica.id}" class="card ${dica.id} titulocard" > 
+      <h1 >${dica.titulo}</h1>  <p><b>Linguagem/Skill:</b> ${dica.skill}</br> <b class="${dica.categoria}">
+      Categoria:</b> ${dica.categoria} <br> <br> ${dica.descricao}</p> <div class="btnCard">
+      <button id="${dica.id}" onclick="capturarModal(this)" class="modalBtn" ><i class="fa-solid fa-expand"></i></button>
+      <button id="${dica.youtube}" class="youtube" onclick="youtube(id)"><i class="fa-brands fa-youtube youtubeH"></i>
+      </button> <button id="${dica.id}" class="editar" onclick="editar(this)"><i class="fa-solid fa-pen-to-square"></i></button> 
+      <button class="apagar" id="${dica.id}"  onclick="apagar(this)"><i class="fa-solid fa-trash"></i></button></div> `;
     } else {
-      conteudo.innerHTML = `<div id="card" class="${dica.id} titulocard" > <h1 >${dica.titulo}</h1>  <p><b>Linguagem/Skill:</b> ${dica.skill}  <br><b class="${dica.categoria}">Categoria:</b> ${dica.categoria} <br> <br>${dica.descricao}</p> <div class="btnCard"><div class="btnCard"><button id="${dica.id}" class="editar" onclick="editar(this)"><i class="fa-solid fa-pen-to-square"></i></button><button class="apagar" id="${dica.id}"  onclick="apagar(this)"><i class="fa-solid fa-trash"></i></button> </div></div> `;
+      conteudo.innerHTML = `<div id="${dica.id}" class="card ${dica.id} titulocard" > 
+      <h1 >${dica.titulo}</h1>  <p><b>Linguagem/Skill:</b> ${dica.skill}</br> <b class="${dica.categoria}">
+      Categoria:</b> ${dica.categoria} <br> <br> ${dica.descricao}</p> <div class="btnCard">
+      <button id="${dica.id}" onclick="capturarModal(this)" class="modalBtn"><i class="fa-solid fa-expand"></i></button>
+      <button id="${dica.id}" class="editar" onclick="editar(this)"><i class="fa-solid fa-pen-to-square"></i></button> 
+      <button class="apagar" id="${dica.id}"  onclick="apagar(this)"><i class="fa-solid fa-trash"></i></button></div> `;
     }
   });
-  console.log(dicas_obj);
+  // console.log(dicas_obj);
+}
+
+function primeiroAcesso() {
+  var dicas = JSON.parse(localStorage.getItem("dicas") || "[]");
+  var id = "id" + new Date().getTime();
+  if ("dicas" in localStorage) {
+    console.log(`Vicente n corno`);
+  } else {
+    dicas.push({
+      id: id,
+      titulo: "Bem vindo",
+      skill: "Como usar o DEVinKnowledge",
+      categoria: "FullStack",
+      descricao: "Como usar o DEVinKnowledge",
+      youtube: youtube,
+    });
+    localStorage.setItem("dicas", JSON.stringify(dicas));
+  }
 }
 
 function salvar_localstorage(titulo, skill, categoria, descricao, youtube) {
@@ -210,7 +287,8 @@ function input() {
   let youtube = document.getElementById("youtube").value;
   validar(id, titulo, skill, categoria, descricao, youtube);
 }
-
+window.onload = primeiroAcesso();
 window.onload = criar_cards();
 window.onload = contar();
 window.onload = pesquisar();
+window.onload = prencher();

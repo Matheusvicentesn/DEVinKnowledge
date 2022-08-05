@@ -14,12 +14,24 @@
       href="https://fonts.googleapis.com/css?family=Roboto"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/x-icon" href="img/favicon.ico"/>
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
   </head>
   <body>
     <main>
-      <!-- Formulario -->
       <div class="container">
+        <!--  Modal -->
+        <div id="modal" class="modal">
+          <!-- Conteúdo do modal -->
+          <div class="conteudoModal">
+            <span class="close">&times;</span>
+            <h1 id="modalTitulo"></h1>
+            <h3 id="modalSkill"></h3>
+            <h3 id="modalCategoria"></h3>
+            <p id="modalDescricao"></p>
+            <div id="modalYoutube" class="video-container"></div>
+          </div>
+        </div>
+        <!-- Formulario -->
         <div class="DIV1">
           <form id="formulario">
             <p><i class="fa-solid fa-brain"> DEVinKnowledge</i></p>
@@ -27,12 +39,9 @@
             <p>Titulo:</p>
             <input type="text" id="titulo" />
             <p id="alertTitulo"></p>
-            <!-- minimo 8 max 64 carac obrigatorio -->
-
             <p>Linguagem ou Skill:</p>
             <input type="text" id="skill" />
             <p id="alertSkill"></p>
-            <!-- minimo 8 max 32 carac obrigatorio -->
             <p>Categoria:</p>
             <select name="categorias" id="categoria">
               <!-- obrigatorio -->
@@ -61,12 +70,12 @@
             <div class="btn"></div>
           </form>
           <div id="btn">
-            <button id="btnLimpar" onclick="limpar()">Limpar</button>
+            <button id="btnLimpar" onclick="limparForm()">Limpar</button>
             <button id="btnEnviar" onclick="input()">Enviar</button>
             <br />
             <br />
             <br />
-            <button onclick="prencher()">Preencher</button>
+            <button style="display: none;" onclick="prencher()">Preencher</button>
           </div>
         </div>
 
@@ -98,15 +107,22 @@
         </div>
         <!-- Botao de pesquisa -->
         <div class="DIV3">
-          <input
-            type="text"
-            autocomplete="off"
-            placeholder="Pesquisar"
-            id="pesquisa"
-          />
+          <div id="formPesquisa">
+            <form action="" id="formularioPesquisa">
+              <input
+                type="text"
+                autocomplete="off"
+                placeholder="Pesquisar"
+                id="pesquisa"
+              />
+            </form>
+          </div>
+          <div id="btnPesquisa">
+            <button id="btnPesquisar" onclick="limparPesquisa()" >Limpar</button>
+          </div>
         </div>
+        <!-- Cartões com as dicas -->
         <div class="DIV4">
-          <!-- Modal -->
           <div id="cards"></div>
         </div>
       </div>
