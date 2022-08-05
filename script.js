@@ -78,16 +78,22 @@ function limpar() {
 }
 function pesquisar() {
   var pesquisa = document.getElementById("pesquisa");
-  var titulocard = document.getElementsByClassName("titulocard");
+  // var titulocard = document.getElementsByClassName("titulocard");
+  const data = JSON.parse(localStorage.getItem("dicas"));
   pesquisa.onkeyup = function () {
     var pesquisar = pesquisa.value.toLowerCase();
-    for (var l = 0; l < titulocard.length; l++) {
-      if (titulocard[l].innerHTML.toLocaleLowerCase().search(pesquisar) == -1) {
-        titulocard[l].style.display = "none";
-      } else {
-        titulocard[l].style.display = "block";
-      }
-    }
+    const itemFiltrados = data.filter((element) =>
+      element.titulo.toLowerCase().includes(pesquisar)
+    );
+    criar_cards(itemFiltrados);
+    console.log(itemFiltrados);
+    // for (var l = 0; l < titulocard.length; l++) {
+    //   if (titulocard[l].innerHTML.toLocaleLowerCase().search(pesquisar) == -1) {
+    //     titulocard[l].style.display = "none";
+    //   } else {
+    //     titulocard[l].style.display = "block";
+    //   }
+    // }
   };
 }
 
@@ -139,7 +145,7 @@ function salvar_edicao(id, titulo, skill, categoria, descricao, youtube) {
   const posicao = data_full.findIndex((item) => item.id == id);
   data_full.splice(posicao, 1, array_editado);
   localStorage.setItem("dicas", JSON.stringify(data_full));
-  window.alert(`Item ${titulo} Editado`)
+  window.alert(`Item ${titulo} Editado`);
   location.reload();
 }
 
@@ -157,23 +163,18 @@ function apagar(obj) {
       (item) => item.id !== obj.id
     );
     localStorage.setItem("dicas", JSON.stringify(data));
-    window.alert(`Item apagado`)
+    window.alert(`Item apagado`);
     location.reload();
+  } else {
   }
-  else{
-
-  }
-
 }
 
-function criar_cards() {
-  let dicas_obj = JSON.parse(localStorage.getItem("dicas"));
-
+function criar_cards(dicas_obj = JSON.parse(localStorage.getItem("dicas"))) {
+  document.getElementById("cards").innerHTML = "";
   dicas_obj.map((dica) => {
     let conteudo = document.createElement("div");
     conteudo.setAttribute("id", "column");
     conteudo.setAttribute("value", categoria);
-
     document.getElementById("cards").appendChild(conteudo);
     if (dica.youtube) {
       conteudo.innerHTML = `<div id="card" class="${dica.id} titulocard" > <h1 >${dica.titulo}</h1>  <p><b>Linguagem/Skill:</b> ${dica.skill}</br> <b class="${dica.categoria}">Categoria:</b> ${dica.categoria} <br> <br> ${dica.descricao}</p> <div class="btnCard"><button id="${dica.youtube}" class="youtube" onclick="youtube(id)"><i class="fa-brands fa-youtube youtubeH"></i></button> <button id="${dica.id}" class="editar" onclick="editar(this)"><i class="fa-solid fa-pen-to-square"></i></button> <button class="apagar" id="${dica.id}"  onclick="apagar(this)"><i class="fa-solid fa-trash"></i></button></div></div> `;
@@ -181,6 +182,7 @@ function criar_cards() {
       conteudo.innerHTML = `<div id="card" class="${dica.id} titulocard" > <h1 >${dica.titulo}</h1>  <p><b>Linguagem/Skill:</b> ${dica.skill}  <br><b class="${dica.categoria}">Categoria:</b> ${dica.categoria} <br> <br>${dica.descricao}</p> <div class="btnCard"><div class="btnCard"><button id="${dica.id}" class="editar" onclick="editar(this)"><i class="fa-solid fa-pen-to-square"></i></button><button class="apagar" id="${dica.id}"  onclick="apagar(this)"><i class="fa-solid fa-trash"></i></button> </div></div> `;
     }
   });
+  console.log(dicas_obj);
 }
 
 function salvar_localstorage(titulo, skill, categoria, descricao, youtube) {
@@ -195,7 +197,7 @@ function salvar_localstorage(titulo, skill, categoria, descricao, youtube) {
     youtube: youtube,
   });
   localStorage.setItem("dicas", JSON.stringify(dicas));
-  window.alert(`Item ${titulo} adcionado`)
+  window.alert(`Item ${titulo} adcionado`);
   location.reload();
 }
 
