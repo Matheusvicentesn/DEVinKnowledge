@@ -26,14 +26,14 @@ function montarModal(data) {
 
   var modalDescricao = document.getElementById("modalDescricao");
   modalDescricao.innerHTML = data.descricao;
+  let modalYoutube = document.getElementById("modalYoutube");
 
   if (data.youtube) {
     let youtube = data.youtube.replace("watch?v=", "embed/"); //Possibilita video ser executado
     console.log(youtube);
-    var modalYoutube = document.getElementById("modalYoutube");
     modalYoutube.innerHTML = `<iframe id="player" type="text/html" width="500" height="390"src="${youtube}"frameborder="0"></iframe>`;
   } else {
-    modalYoutube.remove();
+    modalYoutube.innerHTML = " ";
   }
 }
 
@@ -253,11 +253,12 @@ function primeiroAcesso() {
   } else {
     dicas.push({
       id: id,
-      titulo: "Bem vindo",
+      titulo: "Bem-vindo",
       skill: "Como usar o DEVinKnowledge",
       categoria: "FullStack",
-      descricao: "Como usar o DEVinKnowledge",
-      youtube: youtube,
+      descricao: `Bem-vindo ao DEVinKnowledge, aqui você pode cadastrar cards com dicas para impulsionar seu conhecimento, podendo organiza-los em skills, categorias, e até anexar vídeos 
+        aos cards, abaixo veja como é fácil utilizar o DEVinKnowledge`,
+      youtube: "https://www.youtube.com/watch?v=tY8XnIGZq2c",
     });
     localStorage.setItem("dicas", JSON.stringify(dicas));
   }
