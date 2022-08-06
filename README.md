@@ -1,6 +1,6 @@
 # DEVinKnowledge
 
-<img src="img/devin.png" alt="" style="width: auto; height: 150px;">
+<img src="img/teste.png" alt="" style="width: auto; height: 150px;">
 
 <p style="text-align:center;">
 <img src="https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white" alt="">
