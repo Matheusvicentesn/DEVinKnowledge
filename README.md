@@ -34,8 +34,8 @@
 Melhorias que poderão ser feitas no projeto posteriormente.
 
 - [ ] Salvar informações em um banco de dados
-- [ ] Sistema de Llogin e contas
-- [ ] Compartilhar dicas com mais pessoas e não só localmente ( dependente das duas melhorias acima)
+- [ ] Sistema de login e contas
+- [ ] Compartilhar dicas com mais pessoas e não só localmente (dependente das duas melhorias acima)
 - [ ] Nome de quem deu a "dica" no card para identificação.
 
 ### Contato
