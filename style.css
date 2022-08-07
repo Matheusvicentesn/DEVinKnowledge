@@ -492,7 +492,7 @@ main {
   .DIV1 {
     /* border: 1px solid red; */
     grid-area: DIV1;
-    height: 800px;
+    height: 820px;
     width: 100%;
     position: relative;
     top: 0;
@@ -522,5 +522,10 @@ main {
   .DIV4 {
     margin-top: 50px;
     grid-area: DIV4;
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+  }
+  #cards {
+    padding-bottom: 50px;
   }
 }

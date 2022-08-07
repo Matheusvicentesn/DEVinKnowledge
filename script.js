@@ -68,7 +68,7 @@ function validar(id, titulo, skill, categoria, descricao, youtube) {
   if (skill.length >= 4 && skill.length <= 16) {
     skillVerificado = true;
   } else {
-    alertSkill.innerHTML = "Linguagem deve conter entre 8 à 32 caracteres";
+    alertSkill.innerHTML = "Linguagem deve conter entre 8 à 16 caracteres";
   }
   if (categoria == 0) {
     alertCategoria.innerHTML = "Preencha o campo corretamente";
