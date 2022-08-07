@@ -1,7 +1,7 @@
 # DEVinKnowledge
 
 <div id="container" style="height:100px;line-height:100px;">
-<img src="img/teste.gif" alt="" style="vertical-align:middle;max-height:100%;">
+<img src="img/teste.gif" alt="" style="vertical-align:middle;max-height:50%;">
 </div>
 
 <!-- ![Alt Text](img/teste.gif) -->
