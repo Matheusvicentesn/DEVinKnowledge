@@ -30,7 +30,6 @@ function montarModal(data) {
 
   if (data.youtube) {
     let youtube = data.youtube.replace("watch?v=", "embed/"); //Possibilita video ser executado
-    console.log(youtube);
     modalYoutube.innerHTML = `<iframe id="player" type="text/html" width="500" height="390"src="${youtube}"frameborder="0"></iframe>`;
   } else {
     modalYoutube.innerHTML = " ";
@@ -41,7 +40,6 @@ function capturarModal(obj) {
   const data = JSON.parse(localStorage.getItem("dicas")).find(
     (item) => item.id == obj.id
   );
-  console.log(data);
   montarModal(data);
 }
 
@@ -113,7 +111,6 @@ function validar(id, titulo, skill, categoria, descricao, youtube) {
 }
 
 function youtube(obj) {
-  console.log(obj);
   var strWindowFeatures =
     "location=yes,height=570,width=520,scrollbars=yes,status=yes";
   var URL = obj + location.href;
