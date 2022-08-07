@@ -1,7 +1,7 @@
 # DEVinKnowledge
 
-<!-- <img src="img/teste.png" alt="" style="width: auto; height: 250px; align:center"> -->
-![Alt Text](img/teste.gif)
+<img src="img/teste.gif" alt="" style="width: auto; height: 250px; align:center">
+<!-- ![Alt Text](img/teste.gif) -->
 
 
 
