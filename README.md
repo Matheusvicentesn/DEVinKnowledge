@@ -24,6 +24,7 @@
 - Apagar cards
 - Card de boas-vindas
 - Modal para visualizar informações dos cards com mais foco
+- Sistema de pesquisa
 
 ## Utilização da aplicação
 
