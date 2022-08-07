@@ -2,7 +2,6 @@
 <img src="assets/img/dik.jpg" alt="" style="vertical-align:middle;max-height:50%;">
 </div>
 
-
 <p align="center">
  <h2 align="center">DEVinKnowledge - Criação de cards para estudo</h2>
 </p>
@@ -18,11 +17,14 @@
     </a>
   </p>
 
-  ## Features
+## Features
 
 - Criação de cards dinamicos
 - Edição dos cards para atualizar informações
 - Apagar cards
-- Card de boas-vindas 
+- Card de boas-vindas
 - Modal para visualizar informações dos cards com mais foco
 
+  ## Utilização da aplicação
+
+  [![DEVinKnowledge](https://yt-embed.herokuapp.com/embed?v=tY8XnIGZq2c)](https://www.youtube.com/watch?v=tY8XnIGZq2c "DEVinKnowledge")
