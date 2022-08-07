@@ -18,3 +18,11 @@
     </a>
   </p>
 
+  ## Features
+
+- Criação de cards dinamicos
+- Edição dos cards para atualizar informações
+- Apagar cards
+- Card de boas-vindas 
+- Modal para visualizar informações dos cards com mais foco
+
