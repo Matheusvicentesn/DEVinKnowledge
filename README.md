@@ -25,6 +25,7 @@
 - Card de boas-vindas
 - Modal para visualizar informações dos cards com mais foco
 
-  ## Utilização da aplicação
 
-  [![DEVinKnowledge](https://yt-embed.herokuapp.com/embed?v=tY8XnIGZq2c)](https://www.youtube.com/watch?v=tY8XnIGZq2c "DEVinKnowledge")
+## Utilização da aplicação
+
+[![DEVinKnowledge](https://yt-embed.herokuapp.com/embed?v=tY8XnIGZq2c)](https://www.youtube.com/watch?v=tY8XnIGZq2c "DEVinKnowledge")
