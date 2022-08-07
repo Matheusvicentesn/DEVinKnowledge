@@ -4,8 +4,7 @@
 
 
 <p align="center">
- <h2 align="center">DEVinKnowledge</h2>
- <p align="center">Projeto para criação de dicas para estudar</p>
+ <h2 align="center">DEVinKnowledge - Projeto desenvolvido com base na atividade para o curso DEVinHouse</h2>
 </p>
   <p align="center">
     <a href="">
