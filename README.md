@@ -4,7 +4,7 @@
 
 
 <p align="center">
- <h2 align="center">DEVinKnowledge - Projeto desenvolvido com base na atividade para o curso DEVinHouse</h2>
+ <h2 align="center">DEVinKnowledge - Criação de cards para estudo</h2>
 </p>
   <p align="center">
     <a href="">
