@@ -38,7 +38,7 @@ Melhorias que poderão ser feitas no projeto posteriormente.
 - [ ] Compartilhar dicas com mais pessoas e não só localmente ( dependente das duas melhorias acima)
 - [ ] Nome de quem deu a "dica" no card para identificação.
 
-
+### Contato
 Projeto desenvolvido com base na atividade do curso DEVinHouse
 Qualquer dúvida ou sugestão estou disponível no e-mail:
 <a href="mailto:contato@matheusvicente.dev.br?subject=Questions" title=""> contato@matheusvicente.dev.br</a>
