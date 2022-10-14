@@ -16,6 +16,8 @@
       <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="">
     </a>
   </p>
+   <p align="center">hospedado em: <a href="https://devinknowledge.matheusvicente.dev.br">Github Pages</a> </p>
+  
 
 ## Features
 
